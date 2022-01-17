@@ -58,4 +58,4 @@ def display_table(dropdown_value):
     return generate_table(dff)
 
 if __name__ == '__main__':
-    app.run_server(debug=True, threaded=True)
+    app.server.run(debug=True, threaded=True)
