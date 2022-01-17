@@ -21,7 +21,8 @@ def generate_table(dataframe, max_rows=100):
         ]) for i in range(min(len(dataframe), max_rows))]
     )
 
-app = dash.Dash()
+
+app = dash.Dash(__name__, server=server)
 app.layout = html.Div(
     children=[html.H4(children='Denied Party Screening'),
     dcc.Dropdown(
@@ -57,4 +58,4 @@ def display_table(dropdown_value):
     return generate_table(dff)
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True, threaded=True)
